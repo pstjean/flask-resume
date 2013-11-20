@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block body %}
+    {% if session.logged_in %}
+        <form action="{{ url_for('add_entry') }}" method=post class=add-entry>
+            <dl>
+                <dt>Start Date:
+                <dd><input type=text size=30 name=startDate>
+                <dt>End Date:
+                <dd><input type=text size=30 name=endDate>
+                <dt>Headline:
+                <dd><input type=text size=30 name=headline>
+                <dt>Text:
+                <dd><textarea name=text rows=5 cols=40></textarea>
+                <dt>Asset Media:
+                <dd><input type=text size=30 name=media>
+                <dt>Asset Credit:
+                <dd><input type=text size=30 name=credit>
+                <dt>Asset Caption:
+                <dd><input type=text size=30 name=caption>
+                <dd><input type=submit value=Share>
+            </dl>
+        </form>
+    {% endif %}
+
+    <ul class=entries>
+        {% for entry in entries %}
+            <li><h2>{{ entry.headline }}</h2>{{ entry.text|safe }}
+        {% else %}
+            <li><em>Unbelievable.  No entries here so far</em>
+        {% endfor %}
+    </ul>
+{% endblock %}
