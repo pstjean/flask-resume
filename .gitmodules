@@ -1,0 +1,6 @@
+[submodule "flaskr/static/lib/pikaday"]
+	path = flaskr/static/lib/pikaday
+	url = https://github.com/dbushell/Pikaday.git
+[submodule "flaskr/static/lib/moment"]
+	path = flaskr/static/lib/moment
+	url = https://github.com/moment/moment.git
