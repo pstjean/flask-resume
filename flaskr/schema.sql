@@ -1,25 +1,36 @@
-drop table if exists timeline;
-create table timeline (
-    id integer primary key autoincrement,
-    headline text not null,
-    text text not null,
-    asset integer not null
+CREATE TABLE entry (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    startDate DATE NOT NULL,
+    endDate DATE NOT NULL,
+    headline VARCHAR(255) NOT NULL,
+    text TEXT NOT NULL,
+    asset_id INTEGER NOT NULL,
+    FOREIGN KEY (asset_id) REFERENCES asset(id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
 );
 
-drop table if exists entries;
-create table entries (
-    id integer primary key autoincrement,
-    startDate text not null,
-    endDate text not null,
-    headline text not null,
-    text text not null,
-    asset integer not null
+CREATE TABLE timeline (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    headline VARCHAR(255) NOT NULL,
+    text TEXT NOT NULL,
+    asset_id INTEGER NOT NULL,
+    FOREIGN KEY (asset_id) REFERENCES asset(id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
 );
 
-drop table if exists asset;
-create table asset (
-    id integer primary key autoincrement,
-    media text not null,
-    credit text not null,
-    caption text not null
+CREATE TABLE asset (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    media VARCHAR(255) NOT NULL,
+    credit VARCHAR(255) NOT NULL,
+    caption TEXT NOT NULL
+);
+
+CREATE TABLE users (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    firstName VARCHAR(100) NOT NULL,
+    lastName VARCHAR(100) NOT NULL,
+    email VARCHAR(120) NOT NULL UNIQUE,
+    pwdHash VARCHAR(100) NOT NULL
 );

@@ -15,8 +15,19 @@ import datetime, time
 #     if db is not None:
 #         db.close()
 
+@app.route('/testdb')
+def testdb():
+    if db.session.query('1').from_statement("SELECT 1").all():
+        return 'It works.'
+    else:
+        return 'Something is broken.'
+
 
 @app.route('/')
+def show_index():
+    return render_template('index.html')
+
+@app.route('/add')
 def show_entries():
     entries = Entry.query.all()
     return render_template('show_entries.html', entries=entries)

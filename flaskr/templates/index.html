@@ -1,0 +1,287 @@
+<!doctype html>
+
+<head profile="http://microformats.org/profile/hresume http://microformats.org/profile/hcard http://microformats.org/profile/hcalendar">
+
+    <meta charset="utf-8">
+
+    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Peter St.Jean | Resume</title>
+
+    <!-- CSS: screen, mobile & print are all in the same file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/resume.css') }}">
+
+    <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,400italic|Muli:400,400italic' rel='stylesheet' type='text/css'>
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <!-- BEGIN TimelineJS -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/storyjs-embed.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/modernizr.min.js') }}"></script>
+
+    <script>
+        $(document).ready(function() {
+            createStoryJS({
+                type:       'timeline',
+                width:      '960',
+                height:     '600',
+                source:     '_json_entries',
+                embed_id:   'timeline',
+                font: 'PlayfairDisplay-Muli',
+                start_at_end: 'true'
+            });
+        });
+    </script>
+
+
+<script type="text/javascript">
+/*
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-38517108-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  */
+</script>
+</head>
+<body id="resume">
+
+<article class="hresume">
+
+    <section class="name vcard">
+         <span id="peter-name" class="fn n">
+            <h1 class="given-name">Peter</h1>
+            <!-- <h1 class="ir additional-name">Martin</h1> -->
+            <h1 class="family-name">St.Jean</h1>
+        </span>
+    </section>
+
+    <div id="timeline"></div>
+
+<section class="header clearfix">
+    <section class="contact vcard">
+        <a href="#peter-name" class="include" title="Peter St.Jean"></a>
+        <h2>Contact Information</h2>
+        <div class="org">Bethel University</div>
+        <a class="email" href="mailto:pstjean@gmu.edu">pstjean@gmu.edu</a>
+        <div class="adr">
+            <div class="street-address">1498 Iglehart Avenue, Apartment 2</div>
+            <span class="locality">St. Paul</span>,
+            <span class="region" title="Minnesota">MN</span>,
+            <span class="postal-code">55104</span><br />
+            <span class="country-name">United States</span>
+        </div>
+        <div class="tel">540-308-1077</div>
+        <a class="url" href="http://stjean.co/" rel="me">http://stjean.co/</a><br />
+    </section>
+
+    <section class="vcalendar education-calendar">
+
+        <section class="education vevent">
+            <h2>Education</h2>
+            <div class="vcard">
+                <a class="url fn org" href="http://www.gmu.edu/">George Mason University</a>
+                <div class="adr">
+                    <span class="locality">Fairfax</span>,
+                    <abbr class="region" title="Virginia">VA</abbr>
+                </div>
+            </div>
+            <abbr class="dtstart" title="2008-08-25">2008</abbr> — <abbr class="dtend" title="2013-08-01">2013</abbr>
+            <p class="summary">Bachelor of Science, Applied Information Technology<br />
+            Concentration: Web Development</p>
+        </section>
+    </section>
+</section>
+
+<section class="clearfix vcalendar">
+
+    <h2>Experience</h2>
+
+    <section class="experience vevent vcard">
+        <a href="#peter-name" class="include" title="Peter St.Jean"></a>
+        <h3 class="org">Market Aces, LLC</h3>
+        <div class="adr">
+            <span class="locality">Arlington</span>,
+            <abbr class="region" title="Virginia">VA</abbr>
+        </div>
+        <abbr title="2011-12-01" class="dtstart">December 2011</abbr> — <abbr title="2013-11-01" class="dtend">November 2013</abbr>
+        <div class="position title role">Web Developer</div>
+        <p class="description">Developed customized database solutions for international businesses and non-profits, built on the CodeIgniter and WordPress platforms</p>
+        <p class="description">Worked closely with designers to produce highly interactive and visually stimulating user experiences using HTML5, CSS3, JavaScript and the jQuery library.</p>
+    </section>
+
+    <section class="experience vevent vcard">
+        <a href="#peter-name" class="include" title="Peter St.Jean"></a>
+        <h3 class="org">Saber Communications</h3>
+        <div class="adr">
+            <span class="locality">Falmouth</span>,
+            <abbr class="region" title="Virginia">VA</abbr>
+        </div>
+        <abbr title="2008-03-01" class="dtstart">March 2008</abbr> — <abbr title="2009-08-01" class="dtend">August 2009</abbr>
+        <div class="position title role">Web and Print Designer</div>
+        <p class="description">Front-end development of static web pages using Adobe Dreamweaver, HTML and CSS.</p>
+        <p class="description">Crafted email and direct mail fundraising campaigns for both political and non-profit organizations.</p>
+        <p class="description">Worked with vendors, printers and mail carriers to bring mailing campaigns from design to deployment.</p>
+    </section>
+
+    <section class="experience vevent vcard">
+        <a href="#peter-name" class="include" title="Peter St.Jean"></a>
+        <h3 class="org">Ron Paul Presidential Campaign Committee</h3>
+        <div class="adr">
+            <span class="locality">Arlington</span>,
+            <abbr class="region" title="Virginia">VA</abbr>
+        </div>
+        <abbr title="2007-08-01" class="dtstart">August 2007</abbr> — <abbr title="2008-03-01" class="dtend">March 2008</abbr>
+        <div class="position title role">Regional Coordinator</div>
+        <p class="description">Organizing Get Out the Vote phone-banking and canvassing campaigns for specific precincts.</p>
+        <p class="description">Duties included fielding queries from supporters via email and phone.</p>
+        <p class="description">Cold-calling for fundraising and canvassing purposes.</p>
+    </section>
+
+</section>
+
+
+<section class="skills">
+
+    <h2>Proficiencies</h2>
+    <h3>Languages & Methods</h3>
+    <ul class="skill-list clearfix">
+        <li class="skill professional" rel="tag">HTML</li>
+        <li class="skill professional" rel="tag">CSS</li>
+        <li class="skill professional" rel="tag">JavaScript</li>
+        <li class="skill professional" rel="tag">jQuery</li>
+        <li class="skill professional" rel="tag">AJAX</li>
+        <li class="skill professional" rel="tag">PHP</li>
+        <li class="skill academic" rel="tag">Java</li>
+        <li class="skill academic" rel="tag">Visual Basic</li>
+        <li class="skill academic" rel="tag">C#</li>
+        <li class="skill academic" rel="tag">R</li>
+        <li class="skill academic" rel="tag">Objective-C</li>
+        <li class="skill professional" rel="tag">MySQL</li>
+        <li class="skill academic" rel="tag">Microsoft SQL Server</li>
+        <li class="skill professional" rel="tag">Symfony 2</li>
+        <li class="skill professional" rel="tag">CodeIgniter</li>
+        <li class="skill professional" rel="tag">WordPress</li>
+        <li class="skill academic" rel="tag">Joomla</li>
+    </ul>
+    <h3>Software</h3>
+    <ul class="skill-list clearfix">
+        <li class="skill academic" rel="tag">Adobe Flash</li>
+        <li class="skill professional" rel="tag">Adobe Photoshop</li>
+        <li class="skill professional" rel="tag">IntelliJ</li>
+        <li class="skill professional" rel="tag">Eclipse</li>
+        <li class="skill professional" rel="tag">Vim</li>
+        <li class="skill professional" rel="tag">Git</li>
+        <li class="skill professional" rel="tag">Mercurial</li>
+    </ul>
+    <h3>Operating Systems</h3>
+    <ul class="skill-list clearfix">
+        <li class="skill professional" rel="tag">Microsoft Windows</li>
+        <li class="skill professional" rel="tag">Ubuntu Linux</li>
+        <li class="skill professional" rel="tag">Debian Linux</li>
+        <li class="skill professional" rel="tag">OS X</li>
+        <li class="skill academic" rel="tag">iOS</li>
+    </ul>
+    <ul class="skill-list skill-key clearfix">
+        <li class="skill skill-key professional" rel="tag">Professional</li>
+        <li class="skill skill-key academic" rel="tag">Academic</li>
+    </ul>
+	
+
+    <h3>Open Badges<span class="question">?<div class="answer"><span>Open Badges is a project of the Mozilla Foundation, aiming to create a new online standard to recognize and verify learning. <a href="http://openbadges.org/">Learn more</a>.</span></div></span></h3>
+    <div id="bhwidget"></div>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+		$("li.skill-key").hover(function(event) {
+			if($(this).hasClass('academic')) {
+				$(this).parents('section').find('.skill.academic').addClass('skill-blue');
+			} else {
+				$(this).parents('section').find('.skill.professional').addClass('skill-blue');
+			}
+		}, function(event) {
+			$(this).parents('section').find('.skill').removeClass('skill-blue');
+		});
+
+            $("#bhwidget").on("mouseenter", ".badgeitem", function(event){
+                    $(this).find('.badgename').css('display', 'block');
+            });
+
+            $("#bhwidget").on("mouseleave", ".badgeitem", function(event){
+                $(this).find('.badgename').css('display', 'none');
+            });
+
+            $(".question").hover(
+                function(){
+                    $(this).find('.answer').css('display', 'block');
+                },
+                function() {
+                    $(this).find('.answer').css('display', 'none');
+                }
+            );
+
+            //http://beta.openbadges.org/displayer/13267/groups.json
+            var url = "http://beta.openbadges.org/displayer/13267/group/4769.json";
+            var groups = "http://beta.openbadges.org/displayer/13267/groups.json";
+            $.getJSON(groups, function(data) {
+                //console.log(data.groups);
+                for (var group in data.groups) {
+                    var obj = data.groups[group];
+                    var groupId = null;
+                    var groupName = null;
+                    var groupOutput = null;
+                    for (var prop in obj) {
+                        // important check that this is objects own property
+                        // not from prototype prop inherited
+                        if(obj.hasOwnProperty(prop)){
+                            if (prop == "groupId") {
+                                groupId = obj[prop];
+                            } else if (prop == "name") {
+                                groupName = obj[prop];
+                            }
+                            if(groupId && groupName && groupOutput != groupId) {
+                                getBadgesFromGroup(groupId, groupName);
+                                groupOutput = groupId;
+                            }
+                            //console.log(prop + " = " + obj[prop]);
+                        }
+                    }
+                }
+            });
+
+            function getBadgesFromGroup(groupId, groupName) {
+                $.getJSON("http://beta.openbadges.org/displayer/13267/group/" + groupId + ".json", function(data) {
+                    var i = 0;
+                    var widgetcode = "<div class='badgegroup'><h4>" + groupName + "</h4>";
+                    while (i < data.badges.length < 8) {
+                        var badgeName = data.badges[i].assertion.badge.name;
+                        var imgUrl = data.badges[i].assertion.badge.image;
+                        var critUrl = data.badges[i].assertion.badge.criteria;
+                        var assertUrl = data.badges[i].hostedUrl;
+                        widgetcode = widgetcode + "<div class='badgeitem'>";
+                        widgetcode = widgetcode + "<a href='" +  critUrl + "'><img src='" + imgUrl + "' border='0'/></a><div class='badgename'><a href='" + critUrl + "'>" + badgeName + "</a></div>";
+                        widgetcode = widgetcode + "</div>";
+                        i += 1;
+                        if (i === data.badges.length || i === 8) {
+                            widgetcode = widgetcode + "<div class='clearfix'></div></div>";
+                            $("#bhwidget").append(widgetcode);
+                            //document.getElementById("bhwidget").innerHTML = widgetcode;
+                            return;
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</section>
+
+
+</article><!--hresume-->
+</body>
+</html>

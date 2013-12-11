@@ -1,12 +1,16 @@
 {% extends "layout.html" %}
+{% block styles %}
+    {{ super() }}
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='lib/pikaday/css/pikaday.css') }}">
+{% endblock %}
 {% block body %}
     {% if session.logged_in %}
         <form action="{{ url_for('add_entry') }}" method=post class=add-entry>
             <dl>
                 <dt>Start Date:
-                <dd><input type=text size=30 name=startDate>
+                <dd><input type=text size=30 name=startDate id="startDate">
                 <dt>End Date:
-                <dd><input type=text size=30 name=endDate>
+                <dd><input type=text size=30 name=endDate id="endDate">
                 <dt>Headline:
                 <dd><input type=text size=30 name=headline>
                 <dt>Text:
@@ -29,4 +33,20 @@
             <li><em>Unbelievable.  No entries here so far</em>
         {% endfor %}
     </ul>
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <script type=text/javascript src="{{ url_for('static', filename='lib/moment/moment.js') }}"></script>
+    <script type=text/javascript src="{{ url_for('static', filename='lib/pikaday/pikaday.js') }}"></script>
+    <script>
+        var startDatePicker = new Pikaday({
+            field: document.getElementById('startDate'),
+            format: 'YYYY-MM-DD'
+        });
+        var endDatePicker = new Pikaday({
+            field: document.getElementById('endDate'),
+            format: 'YYYY-MM-DD'
+        });
+    </script>
 {% endblock %}

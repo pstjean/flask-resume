@@ -50,3 +50,23 @@ class Entry(db.Model):
 
     def __repr__(self):
         return "<Headline(headline='%s', startDate='%s', endDate='%s', text='%s')>" % (self.headline, self.startDate, self.endDate, self.text)
+
+class User(db.Model):
+    __tablename__ = 'users'
+    id = db.Column(db.Integer, primary_key = True)
+    firstName = db.Column(db.String(100))
+    lastName = db.Column(db.String(100))
+    email = db.Column(db.String(120), unique=True)
+    pwdHash = db.Column(db.String(54))
+
+def __init__(self, firstname, lastname, email, password):
+    self.firstName = firstname.title()
+    self.lastName = lastname.title()
+    self.email = email.lower()
+    self.set_password(password)
+
+def set_password(self, password):
+    self.pwdhash = generate_password_hash(password)
+
+def check_password(self, password):
+    return check_password_hash(self.pwdhash, password)

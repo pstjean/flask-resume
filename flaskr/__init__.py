@@ -8,8 +8,8 @@ app = Flask(__name__)
 
 #configuration
 app.config.update(dict(
-    SQLALCHEMY_DATABASE_URI='sqlite:////tmp/test.db',
-    # DATABASE='/tmp/flaskr.db',
+    #SQLALCHEMY_DATABASE_URI='sqlite:////tmp/test.db',
+    SQLALCHEMY_DATABASE_URI='mysql://root:root@localhost/flaskresume',
     DEBUG=True,
     SECRET_KEY='development key',
     USERNAME='admin',
@@ -32,8 +32,11 @@ db = SQLAlchemy(app)
 import flaskr.views
 import flaskr.models
 
+def init_db():
+    Base.metadata.create_all(bind=engine)
+
 if __name__ == '__main__':
     # making any changes to our schema will
     # necessitate reinitializing the database
-    # init_db()
+    init_db()
     app.run()
