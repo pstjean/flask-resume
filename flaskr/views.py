@@ -36,6 +36,7 @@ def show_entries():
 @app.route('/_json_entries')
 def json_entries():
     entries = dict()
+    # TODO: change this from hard coded to user added
     entries['timeline'] = {
         'headline': 'Work Experience',
         'type': 'default',
@@ -48,9 +49,28 @@ def json_entries():
     }
     entries['timeline']['date'] = list()
     for e in db.session.query(Entry):
+        entry = convertEntry(e)
+        entries['timeline']['date'].append(entry)
+    js = json.dumps(entries)
+    resp = Response(js, status=200, mimetype='application/json')
+    return resp
+
+@app.route('/_entry/<int:entryid>')
+def json_entry(entryid):
+    e = Entry.query.filter_by(id=entryid).first()
+    if e:
+        entry = convertEntry(e)
+        js = json.dumps(entry)
+        resp = Response(js, status=200, mimetype='application/json')
+    else:
+        resp = Response(None, status=404)
+    return resp
+
+# convert an entry in the database into a JSON serializable dict
+def convertEntry(e):
         entry = dict({
-            'startDate': e.startDate,
-            'endDate': e.endDate,
+            'startDate': str(e.startDate).replace('-',','),
+            'endDate': str(e.endDate).replace('-',','),
             'headline': e.headline,
             'text': e.text
         })
@@ -59,21 +79,7 @@ def json_entries():
             'credit': e.asset.credit,
             'caption': e.asset.caption
         })
-        entries['timeline']['date'].append(entry)
-    js = json.dumps(entries)
-    resp = Response(js, status=200, mimetype='application/json')
-    return resp
-
-# @app.route('/_entry/<int:entryid>')
-# def json_entry(entryid):
-#     entry = Entry.query.filter_by(id=entryid).first()
-#     js = json.dumps(jsonEntry)
-#     if entry:
-#         resp = Response(js, status=200, mimetype='application/json')
-#     else:
-#         resp = Response(None, status=404)
-#     return resp
-
+        return entry
 
 @app.route('/add', methods=['POST'])
 def add_entry():
